@@ -1,8 +1,8 @@
 <script context="module" lang="ts">
   import type { LoadEvent } from '@sveltejs/kit';
   export async function load({ fetch }: LoadEvent) {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-    const guides = await response.json()
+    const response = await fetch('/guides.json')
+    const { guides } = await response.json()
 
     if (response.ok) {
       return {
